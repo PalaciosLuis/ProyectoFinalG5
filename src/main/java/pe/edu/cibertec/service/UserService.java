@@ -30,7 +30,7 @@ public class UserService {
             return new LoginResponse("99", "Usuario no encontrado", null);
         }
 
-        if (!new BCryptPasswordEncoder().matches(user.getPassword(), userResult.getPassword())) {
+        if (!(user.getPassword().matches(userResult.getPassword()))) {
             return new LoginResponse("99", "Password incorrecto", null);
         }
         String token = jwtAuthenticationConfig.getJWTToken(user.getUser());
