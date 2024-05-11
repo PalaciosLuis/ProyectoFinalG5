@@ -12,7 +12,7 @@ import pe.edu.cibertec.response.UpdateRolResponse;
 import java.util.List;
 
 @RestController
-@RequestMapping("/Principal")
+@RequestMapping("/rol")
 public class RolService {
 
     @Autowired

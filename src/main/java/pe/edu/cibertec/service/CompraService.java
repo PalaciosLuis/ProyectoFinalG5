@@ -12,7 +12,7 @@ import pe.edu.cibertec.response.UpdateCompraResponse;
 import java.util.List;
 
 @RestController
-@RequestMapping("/Principal")
+@RequestMapping("/compra")
 public class CompraService {
 
     @Autowired

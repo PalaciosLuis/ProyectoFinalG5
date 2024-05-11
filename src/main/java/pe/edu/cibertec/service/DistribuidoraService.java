@@ -12,7 +12,7 @@ import pe.edu.cibertec.response.UpdateDistribuidoraResponse;
 import java.util.List;
 
 @RestController
-@RequestMapping("/Principal")
+@RequestMapping("/distribuidora")
 public class DistribuidoraService {
 
     @Autowired

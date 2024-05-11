@@ -12,7 +12,7 @@ import pe.edu.cibertec.response.UpdateEntradaResponse;
 import java.util.List;
 
 @RestController
-@RequestMapping("/Principal")
+@RequestMapping("/entrada")
 public class EntradaService {
 
     @Autowired

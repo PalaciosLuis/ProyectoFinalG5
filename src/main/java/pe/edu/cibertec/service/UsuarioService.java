@@ -12,7 +12,7 @@ import pe.edu.cibertec.response.UpdateUsuarioResponse;
 import java.util.List;
 
 @RestController
-@RequestMapping("/Principal")
+@RequestMapping("/usuario")
 public class UsuarioService {
 
     @Autowired

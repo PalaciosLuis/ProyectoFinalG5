@@ -12,7 +12,7 @@ import pe.edu.cibertec.response.UpdateClasificacionResponse;
 import java.util.List;
 
 @RestController
-@RequestMapping("/Principal")
+@RequestMapping("/clasificacion")
 public class ClasificacionService {
 
     @Autowired

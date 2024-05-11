@@ -12,7 +12,7 @@ import pe.edu.cibertec.response.UpdateFuncionResponse;
 import java.util.List;
 
 @RestController
-@RequestMapping("/Principal")
+@RequestMapping("/funcion")
 public class FuncionService {
 
     @Autowired

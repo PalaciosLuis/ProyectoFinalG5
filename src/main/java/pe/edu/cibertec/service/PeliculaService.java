@@ -12,7 +12,7 @@ import pe.edu.cibertec.response.UpdatePelicula;
 import java.util.List;
 
 @RestController
-@RequestMapping("/Principal")
+@RequestMapping("/pelicula")
 public class PeliculaService {
 
     @Autowired
