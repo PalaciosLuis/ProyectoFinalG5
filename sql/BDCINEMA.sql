@@ -1,18 +1,13 @@
-use master
+-- use master
 -- borrar las base de datos en caso exista
-IF EXISTS(SELECT * FROM sys.sysdatabases WHERE name='BDCINERAMA')
-Begin
-	Alter Database BDCINERAMA
-	SET SINGLE_USER WITH ROLLBACK IMMEDIATE
-	DROP DATABASE BDCINERAMA
-End
-GO
+drop database if exists `BDCINERAMA`;
 
 -- crear la base de datos
-CREATE DATABASE BDCINERAMA
-USE BDCINERAMA
+CREATE DATABASE `BDCINERAMA`;
 
---crear las tablas
+USE `BDCINERAMA`;
+
+-- crear las tablas
 
 -- cinerama.rol definition
 CREATE TABLE `rol` (
@@ -106,9 +101,9 @@ CREATE TABLE entrada (
 
 -- insertar datos
 
-INSERT INTO rol(id_rol, nombre_rol) VALUES(1, "admin")
-INSERT INTO rol(id_rol, nombre_rol) VALUES(2, "operador")
-INSERT INTO rol(id_rol, nombre_rol) VALUES(3, "cliente")
+INSERT INTO rol(id_rol, nombre_rol) VALUES(1, "admin");
+INSERT INTO rol(id_rol, nombre_rol) VALUES(2, "operador");
+INSERT INTO rol(id_rol, nombre_rol) VALUES(3, "cliente");
 INSERT INTO USUARIO(user, password, id_rol, nombre, apellido, email) VALUES ('jorge_t', 'password', 1, 'Jorge', 'Torres', 'jorge.torres@example.com');
 INSERT INTO USUARIO(user, password, id_rol, nombre, apellido, email) VALUES ('luis_p', 'abcdef', 2, 'Luis', 'Paredes', 'luis.paredes@email.com');
 INSERT INTO USUARIO(user, password, id_rol, nombre, apellido, email) VALUES ('jose_a', 'qwerty', 2, 'Jose', 'Alvarado', 'jose.alvarado@hotmail.com');
@@ -147,32 +142,32 @@ INSERT INTO pelicula(titulo, sinopsis, id_distribuidora, director, duracion, pun
 INSERT INTO pelicula(titulo, sinopsis, id_distribuidora, director, duracion, puntuacion, is_estreno, id_clasificacion) VALUES ('La La Land', 'Una actriz y un músico se enamoran mientras persiguen sus sueños en Los Ángeles.', 1, 'Damien Chazelle', 128.0, 8, 0, 1);
 INSERT INTO pelicula(titulo, sinopsis, id_distribuidora, director, duracion, puntuacion, is_estreno, id_clasificacion) VALUES ('Inception', 'Un ladrón de mente entra en los sueños de otros para robar secretos.', 2, 'Christopher Nolan', 148.0, 9, 0, 4);
 INSERT INTO pelicula(titulo, sinopsis, id_distribuidora, director, duracion, puntuacion, is_estreno, id_clasificacion) VALUES ('El lobo de Wall Street', 'La historia verdadera de Jordan Belfort, un corredor de bolsa de Wall Street.', 3, 'Martin Scorsese', 180.0, 8, 0, 5);
-INSERT INTO pelicula(titulo, sinopsis, id_distribuidora, director, duracion, puntuacion, is_estreno, id_clasificacion) VALUES ('Interstellar', 'Un grupo de exploradores viaja a través de un agujero de gusano en busca de un nuevo hogar para la humanidad.', 2, 'Christopher Nolan', 169.0, 9, 0, 4);
+INSERT INTO pelicula(titulo, sinopsis, id_distribuidora, director, duracion, puntuacion, is_estreno, id_clasificacion) VALUES ('Interstellar', 'Un grupo de exploradores viaja a través de un agujero de gusano en busca de un nuevo hogar', 2, 'Christopher Nolan', 169.0, 9, 0, 4);
 INSERT INTO pelicula(titulo, sinopsis, id_distribuidora, director, duracion, puntuacion, is_estreno, id_clasificacion) VALUES ('Toy Story 4', 'Woody y sus amigos se embarcan en una aventura con un nuevo juguete llamado Forky.', 4, 'Josh Cooley', 100.0, 8, 0, 1);
-INSERT INTO pelicula(titulo, sinopsis, id_distribuidora, director, duracion, puntuacion, is_estreno, id_clasificacion) VALUES ('Mad Max: Furia en el camino', 'Max se une a Furiosa para escapar de un tirano y su ejército en el desierto post-apocalíptico.', 5, 'George Miller', 120.0, 9, 0, 3);
+INSERT INTO pelicula(titulo, sinopsis, id_distribuidora, director, duracion, puntuacion, is_estreno, id_clasificacion) VALUES ('Mad Max: Furia en el camino', 'Max se une a Furiosa para escapar de un tirano y su ejército en el desierto post-apocalíptico.', 4, 'George Miller', 120.0, 9, 0, 3);
 INSERT INTO pelicula(titulo, sinopsis, id_distribuidora, director, duracion, puntuacion, is_estreno, id_clasificacion) VALUES ('El origen', 'Un equipo de extractores roba secretos de las mentes de las personas mientras duermen.', 2, 'Christopher Nolan', 148.0, 9, 0, 4);
-INSERT INTO pelicula(titulo, sinopsis, id_distribuidora, director, duracion, puntuacion, is_estreno, id_clasificacion) VALUES ('Hereditary', 'La familia Graham comienza a descubrir terribles secretos sobre su árbol genealógico después de la muerte de su abuela.', 1, 'Ari Aster', 127.0, 9, 0, 5);
-INSERT INTO pelicula(titulo, sinopsis, id_distribuidora, director, duracion, puntuacion, is_estreno, id_clasificacion) VALUES ('Moonlight', 'Un joven afroamericano lucha con su identidad y su lugar en el mundo mientras crece en Miami.', 7, 'Barry Jenkins', 111.0, 9, 0, 2);
-INSERT INTO funcion(id_pelicula, fecha_funcion, sala, precio) VALUES (1, '2024-04-17 15:00:00', 1, 15);
-INSERT INTO funcion(id_pelicula, fecha_funcion, sala, precio) VALUES (2, '2024-04-17 17:30:00', 2, 20);
-INSERT INTO funcion(id_pelicula, fecha_funcion, sala, precio) VALUES (3, '2024-04-17 20:00:00', 3, 30);
-INSERT INTO funcion(id_pelicula, fecha_funcion, sala, precio) VALUES (4, '2024-04-18 14:00:00', 4, 15);
-INSERT INTO funcion(id_pelicula, fecha_funcion, sala, precio) VALUES (5, '2024-04-18 16:30:00', 5, 20);
-INSERT INTO funcion(id_pelicula, fecha_funcion, sala, precio) VALUES (6, '2024-04-18 19:00:00', 1, 30);
-INSERT INTO funcion(id_pelicula, fecha_funcion, sala, precio) VALUES (7, '2024-04-19 13:00:00', 2, 15);
-INSERT INTO funcion(id_pelicula, fecha_funcion, sala, precio) VALUES (8, '2024-04-19 15:30:00', 3, 20);
-INSERT INTO funcion(id_pelicula, fecha_funcion, sala, precio) VALUES (9, '2024-04-19 18:00:00', 4, 30);
-INSERT INTO funcion(id_pelicula, fecha_funcion, sala, precio) VALUES (10, '2024-04-20 12:00:00', 5, 15);
-INSERT INTO funcion(id_pelicula, fecha_funcion, sala, precio) VALUES (1, '2024-04-17 15:00:00', 1, 20);
-INSERT INTO funcion(id_pelicula, fecha_funcion, sala, precio) VALUES (2, '2024-04-17 17:30:00', 2, 30);
-INSERT INTO funcion(id_pelicula, fecha_funcion, sala, precio) VALUES (3, '2024-04-17 20:00:00', 3, 15);
-INSERT INTO funcion(id_pelicula, fecha_funcion, sala, precio) VALUES (4, '2024-04-18 14:00:00', 4, 20);
-INSERT INTO funcion(id_pelicula, fecha_funcion, sala, precio) VALUES (5, '2024-04-18 16:30:00', 5, 15);
-INSERT INTO funcion(id_pelicula, fecha_funcion, sala, precio) VALUES (6, '2024-04-18 19:00:00', 1, 30);
-INSERT INTO funcion(id_pelicula, fecha_funcion, sala, precio) VALUES (7, '2024-04-19 13:00:00', 2, 20);
-INSERT INTO funcion(id_pelicula, fecha_funcion, sala, precio) VALUES (8, '2024-04-19 15:30:00', 3, 15);
-INSERT INTO funcion(id_pelicula, fecha_funcion, sala, precio) VALUES (9, '2024-04-19 18:00:00', 4, 30);
-INSERT INTO funcion(id_pelicula, fecha_funcion, sala, precio) VALUES (10, '2024-04-20 12:00:00', 5, 20);
+INSERT INTO pelicula(titulo, sinopsis, id_distribuidora, director, duracion, puntuacion, is_estreno, id_clasificacion) VALUES ('Hereditary', 'La familia Graham comienza a descubrir terribles secretos sobre su árbol genealógico.', 1, 'Ari Aster', 127.0, 9, 0, 5);
+INSERT INTO pelicula(titulo, sinopsis, id_distribuidora, director, duracion, puntuacion, is_estreno, id_clasificacion) VALUES ('Moonlight', 'Un joven afroamericano lucha con su identidad y su lugar en el mundo mientras crece en Miami.', 4, 'Barry Jenkins', 111.0, 9, 0, 2);
+INSERT INTO funcion(id_pelicula, fecha_funcion, sala, precio) VALUES (1, '2024-04-17', 1, 15);
+INSERT INTO funcion(id_pelicula, fecha_funcion, sala, precio) VALUES (2, '2024-04-17', 2, 20);
+INSERT INTO funcion(id_pelicula, fecha_funcion, sala, precio) VALUES (3, '2024-04-17', 3, 30);
+INSERT INTO funcion(id_pelicula, fecha_funcion, sala, precio) VALUES (4, '2024-04-18', 4, 15);
+INSERT INTO funcion(id_pelicula, fecha_funcion, sala, precio) VALUES (5, '2024-04-18', 5, 20);
+INSERT INTO funcion(id_pelicula, fecha_funcion, sala, precio) VALUES (6, '2024-04-18', 1, 30);
+INSERT INTO funcion(id_pelicula, fecha_funcion, sala, precio) VALUES (7, '2024-04-19', 2, 15);
+INSERT INTO funcion(id_pelicula, fecha_funcion, sala, precio) VALUES (8, '2024-04-19', 3, 20);
+INSERT INTO funcion(id_pelicula, fecha_funcion, sala, precio) VALUES (9, '2024-04-19', 4, 30);
+INSERT INTO funcion(id_pelicula, fecha_funcion, sala, precio) VALUES (10, '2024-04-20', 5, 15);
+INSERT INTO funcion(id_pelicula, fecha_funcion, sala, precio) VALUES (1, '2024-04-17', 1, 20);
+INSERT INTO funcion(id_pelicula, fecha_funcion, sala, precio) VALUES (2, '2024-04-17', 2, 30);
+INSERT INTO funcion(id_pelicula, fecha_funcion, sala, precio) VALUES (3, '2024-04-17', 3, 15);
+INSERT INTO funcion(id_pelicula, fecha_funcion, sala, precio) VALUES (4, '2024-04-18', 4, 20);
+INSERT INTO funcion(id_pelicula, fecha_funcion, sala, precio) VALUES (5, '2024-04-18', 5, 15);
+INSERT INTO funcion(id_pelicula, fecha_funcion, sala, precio) VALUES (6, '2024-04-18', 1, 30);
+INSERT INTO funcion(id_pelicula, fecha_funcion, sala, precio) VALUES (7, '2024-04-19', 2, 20);
+INSERT INTO funcion(id_pelicula, fecha_funcion, sala, precio) VALUES (8, '2024-04-19', 3, 15);
+INSERT INTO funcion(id_pelicula, fecha_funcion, sala, precio) VALUES (9, '2024-04-19', 4, 30);
+INSERT INTO funcion(id_pelicula, fecha_funcion, sala, precio) VALUES (10, '2024-04-20', 5, 20);
 INSERT INTO entrada(id_compra, id_funcion) VALUES (1, 5);
 INSERT INTO entrada(id_compra, id_funcion) VALUES (1, 5);
 INSERT INTO entrada(id_compra, id_funcion) VALUES (1, 5);
