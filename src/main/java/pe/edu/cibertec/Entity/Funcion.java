@@ -1,6 +1,8 @@
 package pe.edu.cibertec.Entity;
 
 import java.util.Date;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import java.util.List;
 import lombok.*;
@@ -17,8 +19,10 @@ public class Funcion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id_funcion;
+
     @ManyToOne (cascade = CascadeType.PERSIST)
     @JoinColumn(name = "id_pelicula")
+    @JsonIgnore
     private Pelicula pelicula;
     private Date fecha_funcion;
     private  int stock;

@@ -1,5 +1,6 @@
 package pe.edu.cibertec.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import java.util.List;
 import lombok.*;
