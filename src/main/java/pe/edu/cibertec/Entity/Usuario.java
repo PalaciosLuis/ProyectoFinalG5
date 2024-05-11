@@ -1,5 +1,6 @@
 package pe.edu.cibertec.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import java.util.List;
 import lombok.*;
@@ -20,6 +21,7 @@ public class Usuario {
     private String password;
     @ManyToOne (cascade = CascadeType.PERSIST)
     @JoinColumn(name = "id_rol")
+    @JsonIgnore
     private Rol rol;
     private String nombre;
     private String apellido;

@@ -1,5 +1,6 @@
 package pe.edu.cibertec.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import java.util.List;
 import lombok.*;
@@ -20,6 +21,7 @@ public class Pelicula {
     private String sinopsis;
     @ManyToOne (cascade = CascadeType.PERSIST)
     @JoinColumn(name = "id_distribuidora")
+    @JsonIgnore
     private Distribuidora distribuidora;
     private String director;
     private double duracion;
@@ -27,6 +29,7 @@ public class Pelicula {
     private int is_estreno;
     @ManyToOne (cascade = CascadeType.PERSIST)
     @JoinColumn(name = "id_clasificacion")
+    @JsonIgnore
     private Clasificacion clasificacion;
     private int is_active;
     @OneToMany(mappedBy = "pelicula", cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
