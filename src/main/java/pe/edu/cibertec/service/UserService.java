@@ -24,7 +24,8 @@ public class UserService {
     @PostMapping("/login")
     public LoginResponse login(@RequestBody Usuario user) {
 
-        Usuario userResult = userRepository.findByUsername(user.getUser());
+        Usuario userResult = userRepository.findByUser(user.getUser());
+
         if (userResult == null) {
             return new LoginResponse("99", "Usuario no encontrado", null);
         }
