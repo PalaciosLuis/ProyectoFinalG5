@@ -33,6 +33,7 @@ public class Pelicula {
     private Clasificacion clasificacion;
     private int is_active;
     @OneToMany(mappedBy = "pelicula", cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
+    @JsonIgnore
     private List<Funcion> funcion;
 
 }
