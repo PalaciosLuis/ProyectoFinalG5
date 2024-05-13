@@ -27,16 +27,14 @@ public class UserService {
         Usuario userResult = userRepository.findByUser(user.getUser());
 
         if (userResult == null) {
-            return new LoginResponse("99", "Usuario no encontrado", null);
+            return new LoginResponse("99", "Usuario no encontrado", null,null);
         }
 
         if (!(user.getPassword().matches(userResult.getPassword()))) {
-            return new LoginResponse("99", "Password incorrecto", null);
+            return new LoginResponse("99", "Password incorrecto", null,null);
         }
         String token = jwtAuthenticationConfig.getJWTToken(user.getUser());
 
-        return new LoginResponse("01", null, token);
-
-
+        return new LoginResponse("01", null, token, userResult);
     }
 }

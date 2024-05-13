@@ -19,12 +19,10 @@ public class Entrada {
     @ManyToOne (cascade = CascadeType.PERSIST)
     @JoinColumn(name = "id_compra")
     @JsonIgnore
-
     private Compra compra;
 
     @ManyToOne (cascade = CascadeType.PERSIST)
     @JoinColumn(name = "id_funcion")
-    @JsonIgnore
     private Funcion funcion;
     private  int is_active;
 

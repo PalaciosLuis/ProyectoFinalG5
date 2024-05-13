@@ -22,7 +22,6 @@ public class Funcion {
 
     @ManyToOne (cascade = CascadeType.PERSIST)
     @JoinColumn(name = "id_pelicula")
-    @JsonIgnore
     private Pelicula pelicula;
     private Date fecha_funcion;
     private  int stock;
@@ -30,6 +29,7 @@ public class Funcion {
     private  double precio;
     private  int  is_active;
     @OneToMany(mappedBy = "funcion", cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
+    @JsonIgnore
     private List<Entrada> entrada;
 
 }
