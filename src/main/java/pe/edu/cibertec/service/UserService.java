@@ -2,10 +2,7 @@ package pe.edu.cibertec.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import pe.edu.cibertec.Entity.Usuario;
 import pe.edu.cibertec.repository.UsuarioRepository;
 import pe.edu.cibertec.response.LoginResponse;
@@ -21,6 +18,7 @@ public class UserService {
     @Autowired
     JWTAuthenticationConfig jwtAuthenticationConfig;
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @PostMapping("/login")
     public LoginResponse login(@RequestBody Usuario user) {
 
